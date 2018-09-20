@@ -1,0 +1,5 @@
+Pepito,Perez,123,21,ISUM,0.0
+Pepito,Perez,123,21,ISUM,0.0
+Pepito,Perez,123,21,ISUM,0.0
+Pepito,Perez,123,21,ISUM,0.0
+Pepito,Perez,123,21,ISUM,0.0
