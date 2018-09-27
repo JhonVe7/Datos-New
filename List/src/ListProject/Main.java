@@ -21,6 +21,8 @@ public class Main {
 		return menu;
 	}
 	
+	
+	
 	public static void insert_student()
 	{
 		//String name, String surname, String id, int age, String program

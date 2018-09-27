@@ -70,8 +70,8 @@ public class Clients implements Node {
 	@Override
 	public String toString()
 	{
-		return "\nNombre: " + this.Name + "\tVehiculo: " + this.Vehicle 
-				+ "\tPlaca: " + this.Placa + "\tHora de Ingreso: "+ this.HoraIn +"\n";
+		return "*"+"\nNombre: " + this.Name + "\nVehiculo: " + this.Vehicle 
+				+ "\nPlaca: " + this.Placa + "\nHora de Ingreso: "+ this.HoraIn +"\n";
 	}
 
 	@Override
