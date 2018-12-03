@@ -73,6 +73,7 @@ public class Clients implements Node {
 		return "*"+"\nNombre: " + this.Name + "\nVehiculo: " + this.Vehicle 
 				+ "\nPlaca: " + this.Placa + "\nHora de Ingreso: "+ this.HoraIn +"\n";
 	}
+	
 
 	@Override
 	public boolean isLessThan(Node node) {

@@ -6,19 +6,21 @@ public class Dragon implements Node {
 	//Data Structure Node Client
 	int Days = 0;
 	int  Debt = 0;
+	double frac = 0; 
 
 	Dragon next = null;
 	
-	public Dragon(int debt ){
+	public Dragon(double days, double debt ){
 		
-		this.Debt = debt;
+		this.frac = days/debt;
 		
 	}
 	
 	public Dragon(int days , int debt ){
 	
-		this.Days = debt;
-		this.Debt = days;
+		this.Days = days;
+		this.Debt = debt;
+		this.frac = days/debt;
 		
 	}
 	
@@ -57,7 +59,7 @@ public class Dragon implements Node {
 	@Override
 	public String toString()
 	{
-		return "*"+"\nDias: " + this.Days + "\nDeuda: " + this.Debt +"\n";
+		return "*"+"\n"+"\nDias: " +this.Days + "\nDeuda: " + this.Debt +"\n";
 	}
 
 	@Override

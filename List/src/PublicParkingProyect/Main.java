@@ -63,16 +63,16 @@ public class Main {
 	{
 		try 
 		{
-			bw.write("A continuacion digite la placa del vehiculo para su salida.");
+			bw.write("A continuacion digite la placa del vehiculo para su salida."+"\n");
 			bw.flush();
 			String placa = br.readLine();
 			
 			bw.write("Ingrese la hora de salida: ");
 			bw.flush();
 			String HoraOut = br.readLine();
-			
+			String HoraIn = "1:30" ;
 			int index = clients.indexOf(new Clients(placa));
-			int pay = 0 ;
+			double pay = payOfService(HoraOut,HoraIn);
 			if(index != -1){
 				bw.write("Hora de salida: "+ HoraOut+"\n");
 				bw.flush();
@@ -82,6 +82,7 @@ public class Main {
 				
 				clients.deleteAtIndex(index);
 				bw.write("El cliente de placas " + placa + " ha salido.\n");
+				
 			}
 			else{
 				bw.write("La placa ingresada no existe.\n");
@@ -94,11 +95,18 @@ public class Main {
 	}
 	
 	//method that return the cost of the parking
-	public static double payOfService  (String horaIn, String horaout) {
+	public static double payOfService  (String horaIn, String horaOut) {
 		double pay = 0.0 ;
+		String hi[] =horaIn.split(":");
+		String ho[] = horaOut.split(":");
+		pay= (Integer.parseInt(hi[0])-Integer.parseInt(ho[0]))* 6300;
 		
+			if(Integer.parseInt(hi[1])<Integer.parseInt(ho[1])) 
+				pay = pay +(Integer.parseInt(hi[1])-Integer.parseInt(ho[1])*0.59);
+			
+			
 		
-		
+			
 		return pay;
 	} 
 	
@@ -143,7 +151,6 @@ public class Main {
 	public static void get_Clientlist() {
 		try {
 		
-		clients.printList();
 			
 		} catch (Exception e) {}
 	}
@@ -204,16 +211,17 @@ public class Main {
 			BufferedWriter bwf = new BufferedWriter( fw );
 			
 			bw.write("\nBienvenido al software de aparcamientos publicos\n");
+			
 			bw.flush();
 			
+			clients.insertAtBegin(new Clients("luis","nissan","efg143","1:31"));
+			clients.insertAtBegin(new Clients("andrea","chevrolet","dbq428","1:32"));
+			clients.insertAtBegin(new Clients("ana","bmw","afc353","2:30"));
+			clients.insertAtBegin(new Clients("carlos","toyota","afc451","3:00"));
+			clients.insertAtBegin(new Clients("tomas","chevrolet","ab2133","3:40"));
 			do{	
 				
-				clients.insertAtBegin(new Clients("mario","toyota","abc123","1:30"));
-				clients.insertAtBegin(new Clients("luis","nissan","efg143","1:31"));
-				clients.insertAtBegin(new Clients("andrea","chevrolet","dbq428","1:32"));
-				clients.insertAtBegin(new Clients("ana","bmw","afc353","2:30"));
-				clients.insertAtBegin(new Clients("carlos","toyota","afc451","3:00"));
-				clients.insertAtBegin(new Clients("tomas","chevrolet","ab2133","3:40"));
+				
 				
 				bw.write( menu() );
 				bw.flush();
@@ -235,7 +243,7 @@ public class Main {
 						exit_Vehicle();
 					break;
 					case 3:
-						get_Clientlist();
+						clients.printList();
 					break;
 					case 4:	
 						
